@@ -29,8 +29,8 @@ GreenLie catches the green lie before it ships.
 
 | | URL |
 |---|---|
-| **Website** | https://greenlie.vercel.app *(update after deploy)* |
-| **API** | https://greenlie-api.onrender.com *(update after deploy)* |
+| **Website** | https://web-flax-xi-10.vercel.app |
+| **API** | https://greenlie-api.onrender.com *(deploy via render.yaml)* |
 | **GitHub** | https://github.com/adindamochamad/GreenLie |
 
 ---

@@ -9,7 +9,7 @@ Description:   GreenLie detects when coding agents "fix" CI by weakening test
                assertions instead of fixing bugs. Catches toBe(401) →
                toBeGreaterThan(0) before merge. Built with Agent Orchestrator.
 GitHub:        https://github.com/adindamochamad/GreenLie
-Live demo:     [VERCEL_URL]
+Live demo:     https://web-flax-xi-10.vercel.app
 Demo video:    [YOUTUBE/LOOM_URL]
 ```
 
