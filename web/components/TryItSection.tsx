@@ -18,45 +18,33 @@ interface Laporan {
   duration_ms?: number;
 }
 
-const URL_API = process.env.NEXT_PUBLIC_API_URL?.replace(/\/$/, "");
+async function ambilLaporan(): Promise<Laporan> {
+  const res = await fetch("/api/analyze", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ sample: "naive-agent" }),
+  });
 
-async function ambilLaporan(): Promise<{ laporan: Laporan; sumber: "api" | "cache" }> {
-  if (URL_API) {
-    try {
-      const res = await fetch(`${URL_API}/analyze`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ sample: "naive-agent" }),
-      });
-      if (res.ok) {
-        return { laporan: await res.json(), sumber: "api" };
-      }
-    } catch {
-      // Fallback ke golden report jika API belum siap
-    }
+  if (!res.ok) {
+    throw new Error("API analyze gagal");
   }
 
-  const res = await fetch("/golden-report.json");
-  if (!res.ok) throw new Error("golden-report tidak ditemukan");
-  return { laporan: await res.json(), sumber: "cache" };
+  return res.json();
 }
 
 export function TryItSection() {
   const [memuat, setMemuat] = useState(false);
   const [laporan, setLaporan] = useState<Laporan | null>(null);
-  const [sumber, setSumber] = useState<"api" | "cache" | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   async function jalankanScan() {
     setMemuat(true);
     setLaporan(null);
     setError(null);
-    setSumber(null);
 
     try {
-      const { laporan: data, sumber: asal } = await ambilLaporan();
+      const data = await ambilLaporan();
       setLaporan(data);
-      setSumber(asal);
     } catch {
       setError("Scan gagal — jalankan ./scripts/demo.sh secara lokal");
     } finally {
@@ -79,7 +67,7 @@ export function TryItSection() {
           </h2>
           <p className="text-[#8a8f82] mb-6">
             Pre-baked scenario: auth tests weakened by a naive CI-fix agent.
-            {URL_API ? " Calls live API when available." : ""}
+            Live scan via <code className="text-[#e8e4dc]">POST /api/analyze</code>.
           </p>
           <button
             type="button"
@@ -103,11 +91,7 @@ export function TryItSection() {
               </div>
               <p className="text-[#8a8f82] text-xs">
                 {laporan.assertion_aman}/{laporan.assertion_dicek} assertions intact
-                {sumber === "api" && laporan.duration_ms != null
-                  ? ` · ${laporan.duration_ms}ms via API`
-                  : sumber === "cache"
-                    ? " · cached engine output"
-                    : ""}
+                {laporan.duration_ms != null ? ` · ${laporan.duration_ms}ms live` : ""}
               </p>
               <ul className="space-y-2 text-xs max-h-48 overflow-y-auto">
                 {laporan.temuan.map((t) => (
