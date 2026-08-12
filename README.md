@@ -29,8 +29,9 @@ GreenLie catches the green lie before it ships.
 
 | | URL |
 |---|---|
-| **Website + API** | https://web-flax-xi-10.vercel.app (`/api/analyze`, `/api/health`) |
+| **Website + API** | https://web-flax-xi-10.vercel.app |
 | **GitHub** | https://github.com/adindamochamad/GreenLie |
+| **Submit** | [`docs/TIER-D-READY.md`](docs/TIER-D-READY.md) |
 
 ---
 

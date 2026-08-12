@@ -79,7 +79,7 @@ export function BuiltWithAO() {
             </p>
             {gambarGagal && (
               <p className="mt-4 font-mono text-[10px] text-[#8a8f82]/60">
-                Tip: save AO screenshot as web/public/ao-kanban.png then redeploy
+                Replace with real AO screenshot: save as web/public/ao-kanban.png
               </p>
             )}
           </div>

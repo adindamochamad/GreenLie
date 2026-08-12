@@ -7,6 +7,12 @@ export function FooterSitus() {
         </div>
         <div className="flex flex-wrap gap-6">
           <a
+            href="https://web-flax-xi-10.vercel.app"
+            className="hover:text-[#e8e4dc] transition-colors"
+          >
+            Live demo
+          </a>
+          <a
             href="https://github.com/adindamochamad/GreenLie"
             className="hover:text-[#e8e4dc] transition-colors"
             target="_blank"
