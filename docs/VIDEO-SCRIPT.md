@@ -59,10 +59,19 @@ open -a "Agent Orchestrator"
 
 ## Upload
 
-1. YouTube → Unlisted → copy link
-2. Atau Loom → copy link
+1. **Generated video (local):** `docs/GreenLie-demo.mp4` — regenerate with `./scripts/generate-demo-video.sh`
+2. Upload to YouTube (unlisted) or Loom → copy link
 3. Paste ke `docs/TIER-D-READY.md` — replace `[VIDEO_URL]`
 4. Post Discord + X + LinkedIn dari file yang sama
+
+### Auto-generate (ffmpeg + TTS)
+
+```bash
+./scripts/generate-demo-video.sh
+```
+
+Follows shot list: hook → AO Kanban → website → terminal → end card.
+**Note:** AO segment uses project kanban asset. For max judge score, splice 30s real AO screen recording over segment 2.
 
 ---
 

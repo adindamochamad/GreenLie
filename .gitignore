@@ -17,6 +17,12 @@ out/
 # OS
 .DS_Store
 
-# IDE
-.idea/
-.vscode/
+# Video build artifacts (keep final demo mp4)
+docs/video-build/*.aiff
+docs/video-build/*.m4a
+docs/video-build/*.mp4
+docs/video-build/concat.txt
+docs/video-build/*-slide.png
+docs/video-build/05-terminal.png
+docs/video-build/06-split.png
+docs/video-build/terminal-output.txt
