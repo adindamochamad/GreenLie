@@ -64,14 +64,17 @@ open -a "Agent Orchestrator"
 3. Paste ke `docs/TIER-D-READY.md` — replace `[VIDEO_URL]`
 4. Post Discord + X + LinkedIn dari file yang sama
 
-### Auto-generate (ffmpeg + TTS)
+### Auto-generate (pro — recommended)
 
 ```bash
 ./scripts/generate-demo-video.sh
 ```
 
-Follows shot list: hook → AO Kanban → website → terminal → end card.
-**Note:** AO segment uses project kanban asset. For max judge score, splice 30s real AO screen recording over segment 2.
+**Pipeline:** Playwright browser recording · VHS terminal · Edge neural TTS · ffmpeg transitions.
+
+Requires: `brew install vhs`, `pip install -r scripts/video/requirements.txt`, `playwright install chromium`
+
+Legacy slideshow version: `python3 scripts/generate-demo-video.py`
 
 ---
 

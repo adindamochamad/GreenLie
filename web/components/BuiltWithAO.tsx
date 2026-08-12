@@ -35,7 +35,7 @@ export function BuiltWithAO() {
   const [gambarGagal, setGambarGagal] = useState(false);
 
   return (
-    <section className="border-t border-white/5 px-6 py-24">
+    <section id="built-with-ao" className="border-t border-white/5 px-6 py-24">
       <div className="mx-auto max-w-6xl">
         <div className="grid lg:grid-cols-[1.1fr_1fr] gap-12 items-center">
           <div className="relative border border-white/10 bg-[#161a14] overflow-hidden min-h-[280px]">
