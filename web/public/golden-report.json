@@ -1,0 +1,61 @@
+{
+  "integrity_score": 29,
+  "assertion_dicek": 7,
+  "assertion_aman": 2,
+  "metode": "backslide_v1",
+  "berkas_test": [
+    "tests/auth.test.js"
+  ],
+  "temuan": [
+    {
+      "id": "GL-001",
+      "severity": "critical",
+      "sebelum": "expect(response.status).toBe(401);",
+      "sesudah": "expect(response.status).toBeGreaterThan(0);",
+      "alasan": "TEST_BACKSLIDE - status code exact diganti range yang menerima semua response",
+      "berkas": "tests/auth.test.js",
+      "baris": 10,
+      "confidence": 0.98
+    },
+    {
+      "id": "GL-002",
+      "severity": "critical",
+      "sebelum": "expect(response.body.error).toBe('Unauthorized');",
+      "sesudah": "expect(response.body.error).toBeDefined();",
+      "alasan": "TEST_BACKSLIDE - assertion exact diganti truthy/defined yang selalu pass",
+      "berkas": "tests/auth.test.js",
+      "baris": 11,
+      "confidence": 0.98
+    },
+    {
+      "id": "GL-003",
+      "severity": "critical",
+      "sebelum": "expect(response.body.user.id).toBe('user-123');",
+      "sesudah": "expect(response.status).toBeGreaterThan(0);",
+      "alasan": "TEST_BACKSLIDE - ketat 90 -> 50",
+      "berkas": "tests/auth.test.js",
+      "baris": 28,
+      "confidence": 0.98
+    },
+    {
+      "id": "GL-004",
+      "severity": "critical",
+      "sebelum": "expect(response.body.user.email).toBe('dev@example.com');",
+      "sesudah": "expect(response.body).toBeDefined();",
+      "alasan": "TEST_BACKSLIDE - assertion exact diganti truthy/defined yang selalu pass",
+      "berkas": "tests/auth.test.js",
+      "baris": 29,
+      "confidence": 0.98
+    },
+    {
+      "id": "GL-005",
+      "severity": "critical",
+      "sebelum": "expect(response.status).toBe(401);",
+      "sesudah": "*(assertion dihapus)*",
+      "alasan": "ASSERTION_DROPPED - agent menghapus assertion yang sebelumnya ada",
+      "berkas": "tests/auth.test.js",
+      "baris": 30,
+      "confidence": 0.95
+    }
+  ]
+}
