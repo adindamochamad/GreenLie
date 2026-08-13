@@ -1,0 +1,44 @@
+name: GreenLie self-check
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+# Demonstrates using the GreenLie action to guard test integrity.
+# Runs against the built-in sample directories to prove the guard fires
+# on the expected backslide (exit 1) and stays green on the identical
+# baseline (exit 0).
+
+jobs:
+  guard-golden-sample:
+    name: Guard golden sample (must FAIL - backslide expected)
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run GreenLie action on backslide sample
+        id: gl
+        uses: ./
+        with:
+          before: samples/before-agent-fix
+          after: samples/after-agent-fix
+          min-integrity: '100'
+      - name: Assert expected block
+        if: steps.gl.outcome == 'success'
+        run: |
+          echo "::error::Expected GreenLie to block the golden backslide sample."
+          exit 1
+
+  guard-clean-baseline:
+    name: Guard identical baseline (must PASS - no backslide)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run GreenLie action on identical dirs
+        uses: ./
+        with:
+          before: samples/before-agent-fix
+          after: samples/before-agent-fix
+          min-integrity: '100'

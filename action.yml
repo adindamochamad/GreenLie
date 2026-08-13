@@ -1,0 +1,104 @@
+name: 'GreenLie test-integrity guard'
+description: >
+  Blocks merge when an AI coding agent weakens test assertions instead of
+  fixing the bug (e.g. toBe(401) -> toBeGreaterThan(0)).
+author: 'Adinda Panca Mochamad'
+branding:
+  icon: 'shield'
+  color: 'red'
+
+inputs:
+  before:
+    description: 'Directory containing the "before agent fix" test files.'
+    required: true
+  after:
+    description: 'Directory containing the "after agent fix" test files.'
+    required: true
+  min-integrity:
+    description: >
+      Minimum acceptable integrity score (0-100). Job fails when the score
+      drops below this threshold. Defaults to 100 (any backslide fails).
+    required: false
+    default: '100'
+  format:
+    description: 'Output format: table (default) or json.'
+    required: false
+    default: 'table'
+  python-version:
+    description: 'Python version used to run the engine.'
+    required: false
+    default: '3.11'
+
+outputs:
+  integrity-score:
+    description: 'Integrity score reported by the engine (0-100).'
+    value: ${{ steps.analyze.outputs.integrity }}
+  findings:
+    description: 'Number of TEST_BACKSLIDE / ASSERTION_DROPPED findings.'
+    value: ${{ steps.analyze.outputs.findings }}
+  report-json:
+    description: 'Path to the JSON report artifact.'
+    value: ${{ steps.analyze.outputs.report }}
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ inputs.python-version }}
+
+    - name: Install GreenLie engine
+      shell: bash
+      run: |
+        pip install --quiet \
+          "git+https://github.com/adindamochamad/GreenLie.git#subdirectory=engine"
+
+    - name: Run GreenLie analyze
+      id: analyze
+      shell: bash
+      env:
+        GL_BEFORE: ${{ inputs.before }}
+        GL_AFTER: ${{ inputs.after }}
+        GL_MIN: ${{ inputs.min-integrity }}
+        GL_FORMAT: ${{ inputs.format }}
+      run: |
+        set +e
+        REPORT="$(mktemp -t greenlie-report.XXXXXX.json)"
+        greenlie analyze --before "$GL_BEFORE" --after "$GL_AFTER" --format json > "$REPORT"
+        ANALYZE_EXIT=$?
+        set -e
+
+        SCORE=$(python -c "import json,sys; print(json.load(open('$REPORT'))['integrity_score'])")
+        FINDINGS=$(python -c "import json,sys; print(len(json.load(open('$REPORT'))['temuan']))")
+
+        echo "integrity=$SCORE" >> "$GITHUB_OUTPUT"
+        echo "findings=$FINDINGS" >> "$GITHUB_OUTPUT"
+        echo "report=$REPORT" >> "$GITHUB_OUTPUT"
+
+        {
+          echo "## GreenLie test-integrity report"
+          echo ""
+          echo "| Metric | Value |"
+          echo "|---|---|"
+          echo "| Integrity score | **${SCORE}%** |"
+          echo "| Findings | ${FINDINGS} |"
+          echo "| Threshold | ${GL_MIN}% |"
+          echo ""
+          if [ "$GL_FORMAT" = "table" ]; then
+            echo "<details><summary>Findings detail</summary>"
+            echo ""
+            echo '```'
+            greenlie analyze --before "$GL_BEFORE" --after "$GL_AFTER" --format table || true
+            echo '```'
+            echo ""
+            echo "</details>"
+          fi
+        } >> "$GITHUB_STEP_SUMMARY"
+
+        if [ "$SCORE" -lt "$GL_MIN" ]; then
+          echo "::error title=GreenLie::Integrity score ${SCORE}% is below the required ${GL_MIN}% (${FINDINGS} findings). Merge blocked."
+          exit 1
+        fi
+
+        echo "GreenLie integrity OK: ${SCORE}% >= ${GL_MIN}% (${FINDINGS} findings)."

@@ -8,6 +8,46 @@ from pathlib import Path
 from greenlie.models import Assertion, LaporanIntegritas, TemuanBackslide
 from greenlie.parser_test import apakah_berkas_test, baca_berkas_test, ekstrak_assertion
 
+# Jenis assertion yang dianggap "exact" untuk klasifikasi backslide.
+JENIS_EXACT = {
+    "exact_number",
+    "exact_string",
+    "exact_bool",
+    "exact_null",
+    "exact_identifier",
+    "exact_dotted",
+    "strict_equal",
+    "equal",
+    "match_object",
+    "regex_specific",
+    "length_exact",
+    "contain_string",
+    "contain_number",
+    "throws_specific",
+    "throws_message",
+    "assert_exact_string",
+    "assert_exact_number",
+    "assert_exact_constant",
+    "assert_bool_true",
+    "assert_bool_false",
+    "raises_specific",
+}
+
+JENIS_LONGGAR = {
+    "truthy",
+    "falsy",
+    "defined",
+    "undefined",
+    "not_undefined",
+    "throws_generic",
+    "throws_bare",
+    "raises_generic",
+    "assert_loose",
+    "to_be_generic",
+}
+
+JENIS_RANGE_PREFIX = ("range_",)
+
 
 def _cocokkan_assertion(
     sebelum: list[Assertion],
@@ -91,22 +131,31 @@ def _assertion_serupa(a: Assertion, b: Assertion) -> bool:
 
 def _alasan_pelemahan(sebelum: Assertion, sesudah: Assertion) -> str:
     """Buat alasan human-readable untuk pelemahan assertion."""
-    if sesudah.jenis in {"truthy", "defined"} and sebelum.jenis in {
-        "exact_number",
-        "exact_string",
-        "strict_equal",
-        "equal",
+    # Check specific patterns before the generic exact-to-loose branch.
+    if sebelum.jenis in {"throws_specific", "throws_message"} and sesudah.jenis in {
+        "throws_generic",
+        "throws_bare",
     }:
-        return "TEST_BACKSLIDE - assertion exact diganti truthy/defined yang selalu pass"
+        return "TEST_BACKSLIDE - expect().toThrow(SpecificError) diganti toThrow() generic"
 
-    if sesudah.jenis.startswith("range") and sebelum.jenis == "exact_number":
+    if any(sesudah.jenis.startswith(p) for p in JENIS_RANGE_PREFIX) and sebelum.jenis in {
+        "exact_number",
+        "exact_identifier",
+        "exact_dotted",
+    }:
         return "TEST_BACKSLIDE - status code exact diganti range yang menerima semua response"
 
-    if sebelum.jenis == "regex_specific" and sesudah.jenis == "defined":
-        return "TEST_BACKSLIDE - pengecekan string exact diganti toBeDefined()"
+    if sebelum.jenis == "regex_specific" and sesudah.jenis in JENIS_LONGGAR:
+        return "TEST_BACKSLIDE - pengecekan string regex diganti truthy/defined"
 
-    if sebelum.jenis == "throws" and sesudah.jenis != "throws":
-        return "TEST_BACKSLIDE - expect().toThrow() dihilangkan atau dilonggarkan"
+    if sebelum.jenis in {"strict_equal", "equal", "match_object"} and sesudah.jenis in JENIS_LONGGAR:
+        return "TEST_BACKSLIDE - deep equality diganti truthy/defined"
+
+    if sebelum.jenis in {"contain_string", "contain_number"} and sesudah.jenis in JENIS_LONGGAR:
+        return "TEST_BACKSLIDE - toContain(spesifik) diganti truthy/defined"
+
+    if sesudah.jenis in JENIS_LONGGAR and sebelum.jenis in JENIS_EXACT:
+        return "TEST_BACKSLIDE - assertion exact diganti truthy/defined yang selalu pass"
 
     return f"TEST_BACKSLIDE - ketat {sebelum.tingkat_ketat} -> {sesudah.tingkat_ketat}"
 

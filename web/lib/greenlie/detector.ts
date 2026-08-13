@@ -59,24 +59,83 @@ function assertionSerupa(a: Assertion, b: Assertion): boolean {
   return rasioKemiripan(a.teks, b.teks) > 0.55;
 }
 
-function alasanPelemahan(sebelum: Assertion, sesudah: Assertion): string {
-  const jenisLonggar = new Set(["truthy", "defined"]);
-  const jenisKetat = new Set(["exact_number", "exact_string", "strict_equal", "equal"]);
+const JENIS_EXACT = new Set([
+  "exact_number",
+  "exact_string",
+  "exact_bool",
+  "exact_null",
+  "exact_identifier",
+  "exact_dotted",
+  "strict_equal",
+  "equal",
+  "match_object",
+  "regex_specific",
+  "length_exact",
+  "contain_string",
+  "contain_number",
+  "throws_specific",
+  "throws_message",
+  "assert_exact_string",
+  "assert_exact_number",
+  "assert_exact_constant",
+  "assert_bool_true",
+  "assert_bool_false",
+  "raises_specific",
+]);
 
-  if (jenisLonggar.has(sesudah.jenis) && jenisKetat.has(sebelum.jenis)) {
-    return "TEST_BACKSLIDE - assertion exact diganti truthy/defined yang selalu pass";
+const JENIS_LONGGAR = new Set([
+  "truthy",
+  "falsy",
+  "defined",
+  "undefined",
+  "not_undefined",
+  "throws_generic",
+  "throws_bare",
+  "raises_generic",
+  "assert_loose",
+  "to_be_generic",
+]);
+
+function alasanPelemahan(sebelum: Assertion, sesudah: Assertion): string {
+  // Check specific patterns before the generic exact-to-loose branch.
+  if (
+    (sebelum.jenis === "throws_specific" || sebelum.jenis === "throws_message") &&
+    (sesudah.jenis === "throws_generic" || sesudah.jenis === "throws_bare")
+  ) {
+    return "TEST_BACKSLIDE - expect().toThrow(SpecificError) diganti toThrow() generic";
   }
 
-  if (sesudah.jenis.startsWith("range") && sebelum.jenis === "exact_number") {
+  if (
+    sesudah.jenis.startsWith("range_") &&
+    (sebelum.jenis === "exact_number" ||
+      sebelum.jenis === "exact_identifier" ||
+      sebelum.jenis === "exact_dotted")
+  ) {
     return "TEST_BACKSLIDE - status code exact diganti range yang menerima semua response";
   }
 
-  if (sebelum.jenis === "regex_specific" && sesudah.jenis === "defined") {
-    return "TEST_BACKSLIDE - pengecekan string exact diganti toBeDefined()";
+  if (sebelum.jenis === "regex_specific" && JENIS_LONGGAR.has(sesudah.jenis)) {
+    return "TEST_BACKSLIDE - pengecekan string regex diganti truthy/defined";
   }
 
-  if (sebelum.jenis === "throws" && sesudah.jenis !== "throws") {
-    return "TEST_BACKSLIDE - expect().toThrow() dihilangkan atau dilonggarkan";
+  if (
+    (sebelum.jenis === "strict_equal" ||
+      sebelum.jenis === "equal" ||
+      sebelum.jenis === "match_object") &&
+    JENIS_LONGGAR.has(sesudah.jenis)
+  ) {
+    return "TEST_BACKSLIDE - deep equality diganti truthy/defined";
+  }
+
+  if (
+    (sebelum.jenis === "contain_string" || sebelum.jenis === "contain_number") &&
+    JENIS_LONGGAR.has(sesudah.jenis)
+  ) {
+    return "TEST_BACKSLIDE - toContain(spesifik) diganti truthy/defined";
+  }
+
+  if (JENIS_LONGGAR.has(sesudah.jenis) && JENIS_EXACT.has(sebelum.jenis)) {
+    return "TEST_BACKSLIDE - assertion exact diganti truthy/defined yang selalu pass";
   }
 
   return `TEST_BACKSLIDE - ketat ${sebelum.tingkat_ketat} -> ${sesudah.tingkat_ketat}`;

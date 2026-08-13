@@ -1,7 +1,7 @@
-# GreenLie ù Konteks Lengkap Proyek
+# GreenLie √π Konteks Lengkap Proyek
 
 > **Single source of truth** untuk seluruh konteks hackathon, produk, arsitektur, strategi, dan status build.
-> Terakhir diperbarui: **12 Agustus 2026, malam** ù build & deploy selesai; sisa video manual + Tier D submit
+> Terakhir diperbarui: **12 Agustus 2026, malam** √π build & deploy selesai; sisa video manual + Tier D submit
 
 ---
 
@@ -10,12 +10,12 @@
 1. [Ringkasan Eksekutif](#1-ringkasan-eksekutif)
 2. [Konteks Hackathon](#2-konteks-hackathon)
 3. [Builder & Setup](#3-builder--setup)
-4. [Stage 1 ù Ideation & Validasi Strategis](#4-stage-1--ideation--validasi-strategis)
+4. [Stage 1 √π Ideation & Validasi Strategis](#4-stage-1--ideation--validasi-strategis)
 5. [Produk: GreenLie](#5-produk-greenlie)
 6. [Demo Concept & Wow Moment](#6-demo-concept--wow-moment)
 7. [Strategi Menang Hackathon](#7-strategi-menang-hackathon)
 8. [Arsitektur Sistem](#8-arsitektur-sistem)
-9. [Engine Python ù Detail Teknis](#9-engine-python--detail-teknis)
+9. [Engine Python √π Detail Teknis](#9-engine-python--detail-teknis)
 10. [API FastAPI](#10-api-fastapi)
 11. [Demo Website (Next.js)](#11-demo-website-nextjs)
 12. [Sample Data & Golden Report](#12-sample-data--golden-report)
@@ -38,10 +38,10 @@
 |-------|-------|
 | **Nama proyek** | GreenLie |
 | **Tagline** | CI passed. Tests lied. |
-| **One-line problem** | Your Kanban shows green. Your tests show pass. Your production shows outage. The agent didn't fix the bug ù it fixed the test. |
-| **Hackathon** | [The Orchestra](https://luma.com/iw1v5erp) ù hackathon pertama Agent Orchestrator |
-| **Format** | Solo ù 2 hari ù fully online |
-| **Verdict Stage 1** | **GO** ù Win Index estimasi ~20ù28% |
+| **One-line problem** | Your Kanban shows green. Your tests show pass. Your production shows outage. The agent didn't fix the bug √π it fixed the test. |
+| **Hackathon** | [The Orchestra](https://luma.com/iw1v5erp) √π hackathon pertama Agent Orchestrator |
+| **Format** | Solo √π 2 hari √π fully online |
+| **Verdict Stage 1** | **GO** √π Win Index estimasi ~20√π28% |
 | **Stage saat ini** | Stage 3 - Ship & Submit (build selesai; sisa video manual + Tier D) |
 | **Constraint unik** | Produk bebas; **AO wajib** sebagai workspace; demo video **wajib** tunjukkan AO Kanban |
 
@@ -70,16 +70,16 @@ expect(response.status).toBeGreaterThan(0);
 | **Host** | Maaz, Pulkit Saraf, Nikhil Achale, Prateek, Prasad Ware |
 | **Creator AO** | Prateek Karnal (session Discord dari SF) |
 | **Peserta terdaftar** | ~235+ (per Luma, Agustus 2026) |
-| **Edisi** | Pertama ù **tidak ada pemenang edisi sebelumnya** |
+| **Edisi** | Pertama √π **tidak ada pemenang edisi sebelumnya** |
 | **Lokasi** | Fully online via Discord |
-| **Registrasi** | Luma ù approval required (status: **APPROVED**) |
+| **Registrasi** | Luma √π approval required (status: **APPROVED**) |
 
 ### 2.2 Jadwal Kritis
 
 | Milestone | Tanggal/Waktu |
 |-----------|---------------|
-| Build window | **12ù13 Agustus 2026** |
-| Submission deadline | **13 Agustus, 7:00 PM** (timezone tidak eksplisit ù asumsikan IST atau konfirmasi di Discord) |
+| Build window | **12√π13 Agustus 2026** |
+| Submission deadline | **13 Agustus, 7:00 PM** (timezone tidak eksplisit √π asumsikan IST atau konfirmasi di Discord) |
 | Pengumuman pemenang | **14 Agustus 2026** |
 
 ### 2.3 Hadiah
@@ -89,7 +89,7 @@ expect(response.status).toBeGreaterThan(0);
 | 1st | $100 |
 | 2nd | $50 |
 | 3rd | $50 |
-| Top 10ù15 | AO merch |
+| Top 10√π15 | AO merch |
 | Bonus | Undangan opsional ke launch party Bangalore (BLR) |
 
 ### 2.4 Rules Resmi (scraped dari Luma + Notion)
@@ -100,28 +100,28 @@ expect(response.status).toBeGreaterThan(0);
 - Discord: https://discord.gg/87NPrAuDa
 
 **Aturan build:**
-- Tim 1ù4 orang; solo diperbolehkan
-- Build hanya selama window resmi (12ù13 Agustus)
+- Tim 1√π4 orang; solo diperbolehkan
+- Build hanya selama window resmi (12√π13 Agustus)
 - **Wajib pakai AO** saat membuat proyek
-- Produk bebas ù AO adalah **workspace**, bukan tema
+- Produk bebas √π AO adalah **workspace**, bukan tema
 - **Public GitHub repo** wajib
-- **Demo video** wajib ù **harus menampilkan AO Kanban board / penggunaan Agent Orchestrator**
+- **Demo video** wajib √π **harus menampilkan AO Kanban board / penggunaan Agent Orchestrator**
 
 **Tema eksplorasi (saran, bukan wajib):**
-Creative tools ù Developer workflows ù Personal productivity ù Local-first ù Education ù Communities ù Business ops ù Security/reliability ù Media/games/storytelling ù Weird/experimental/internet-native ù **Bonus untuk yang mengejutkan**
+Creative tools √π Developer workflows √π Personal productivity √π Local-first √π Education √π Communities √π Business ops √π Security/reliability √π Media/games/storytelling √π Weird/experimental/internet-native √π **Bonus untuk yang mengejutkan**
 
 ### 2.5 Cara Masuk (Discord)
 
 1. Join AO Discord ? https://discord.gg/87NPrAuDa
 2. React **spider emoji** di `#orchestra-announcements` ? dapat role **Hacker**
 3. Pantau `#orchestra-announcements` untuk update
-4. Cari tim di `#orchestra-find-a-teammate` (jika perlu ù kita solo)
+4. Cari tim di `#orchestra-find-a-teammate` (jika perlu √π kita solo)
 5. Build & diskusi di `#orchestra-general`
 6. Submit di `#orchestra-project-showcase`
 
-### 2.6 Submission ù 2 Langkah WAJIB
+### 2.6 Submission √π 2 Langkah WAJIB
 
-**Step 1 ù Discord `#orchestra-project-showcase`:**
+**Step 1 √π Discord `#orchestra-project-showcase`:**
 - Team name
 - Project name
 - Description
@@ -129,11 +129,11 @@ Creative tools ù Developer workflows ù Personal productivity ù Local-first ù Edu
 - Live demo link (jika ada)
 - Demo video link
 
-**Step 2 ù Post publik X atau LinkedIn:**
+**Step 2 √π Post publik X atau LinkedIn:**
 - Project + demo video + public GitHub repo
 - Hashtag `#agentorchestrator`
-- Tag AO: X ? [@aoagents](https://x.com/aoagents) ù LinkedIn ? [Agent Orchestrator](https://www.linkedin.com/company/agent-orchestrator/)
-- Multi-post dari member tim boleh ù engagement digabung
+- Tag AO: X ? [@aoagents](https://x.com/aoagents) √π LinkedIn ? [Agent Orchestrator](https://www.linkedin.com/company/agent-orchestrator/)
+- Multi-post dari member tim boleh √π engagement digabung
 
 **Tidak ada showcase post + post publik = tidak masuk penilaian.**
 
@@ -150,7 +150,7 @@ Tidak ada rubric numerik resmi. Signal yang jelas dari rules:
 | Surprise factor | **Bonus eksplisit** |
 | "Ship something real" | **Narasi inti event** |
 
-**Lens juri:** Tim AO + Prateek Karnal ù mereka peduli orchestration, parallel agents, CI feedback loop, branch management.
+**Lens juri:** Tim AO + Prateek Karnal √π mereka peduli orchestration, parallel agents, CI feedback loop, branch management.
 
 ---
 
@@ -164,16 +164,16 @@ Tidak ada rubric numerik resmi. Signal yang jelas dari rules:
 | **Format tim** | Solo |
 | **Background** | Backend developer (PHP, Python, R, C++, MySQL) |
 | **Track record hackathon** | SpecDrift, HeatRecall, OmniBridge |
-| **AO terinstall** | Ya ù `/Applications/Agent Orchestrator.app` (v0.12.2 via Homebrew) |
+| **AO terinstall** | Ya √π `/Applications/Agent Orchestrator.app` (v0.12.2 via Homebrew) |
 | **Workspace lokal** | `/Users/mac/Development/GreenLie` |
 
 ---
 
-## 4. Stage 1 ù Ideation & Validasi Strategis
+## 4. Stage 1 √π Ideation & Validasi Strategis
 
 ### 4.1 Baseline Penelitian
 
-Hackathon **pertama** AO ù tidak ada pemenang edisi sebelumnya untuk dibandingkan.
+Hackathon **pertama** AO √π tidak ada pemenang edisi sebelumnya untuk dibandingkan.
 
 **Blind spot kompetitor:** Banyak peserta akan build AO dashboard clone, generic agent tool, atau ChatGPT wrapper.
 
@@ -183,19 +183,19 @@ Hackathon **pertama** AO ù tidak ada pemenang edisi sebelumnya untuk dibandingka
 
 #### Ide A: GreenLie (TERPILIH)
 
-> *"What happens when your agent 'fixes' CI by weakening the test ù and your Kanban board says ready to merge?"*
+> *"What happens when your agent 'fixes' CI by weakening the test √π and your Kanban board says ready to merge?"*
 
 | Lensa | Skor | Catatan |
 |-------|------|---------|
 | Pain Point Clarity | 9 | Engineer agent fleet khawatir ini |
-| Differentiation | 8 | Bukan spec drift, bukan memory ù test integrity |
-| Technical Feasibility | 9 | Python diff analyzer ù 2 hari realistis solo |
+| Differentiation | 8 | Bukan spec drift, bukan memory √π test integrity |
+| Technical Feasibility | 9 | Python diff analyzer √π 2 hari realistis solo |
 | Judge Appeal | 10 | Align langsung narasi produk AO (CI feedback loop) |
 | Scalability Story | 8 | Semua tim agentic development |
 | High Chance of Winning | 9 | Juri membangun fitur yang GreenLie audit |
 | Uniqueness | 8 | Bukan Kanban clone |
 | Wow Factor | 9 | Side-by-side naive merge vs block |
-| ChatGPT Test | **LULUS** | Butuh heuristics diff ù tidak bisa di-prompt |
+| ChatGPT Test | **LULUS** | Butuh heuristics diff √π tidak bisa di-prompt |
 
 **DeadDrop Checklist:** 6/6  
 **Verdict:** **GO**
@@ -208,10 +208,10 @@ Radar konflik semantic antar branch parallel agent.
 
 | Lensa | Skor |
 |-------|------|
-| Feasibility | **6** ù scope terlalu besar 2 hari solo |
+| Feasibility | **6** √π scope terlalu besar 2 hari solo |
 | Judge Appeal | 9 |
 
-**Verdict:** **PIVOT** ù bagus tapi tidak realistis untuk window hackathon.
+**Verdict:** **PIVOT** √π bagus tapi tidak realistis untuk window hackathon.
 
 #### Ide C: TaskDrift (DROP)
 
@@ -219,12 +219,12 @@ Adaptasi SpecDrift: AO task card vs codebase.
 
 | Lensa | Skor |
 |-------|------|
-| Feasibility | 10 ù engine sudah ada |
-| Uniqueness | **5** ù terlihat repackage SpecDrift |
+| Feasibility | 10 √π engine sudah ada |
+| Uniqueness | **5** √π terlihat repackage SpecDrift |
 
-**Verdict:** **DROP** untuk Orchestra ù derivative risk.
+**Verdict:** **DROP** untuk Orchestra √π derivative risk.
 
-### 4.3 Framework 9 Lensa ù GreenLie Final
+### 4.3 Framework 9 Lensa √π GreenLie Final
 
 ```
 1. PAIN POINT CLARITY     9/10
@@ -238,19 +238,19 @@ Adaptasi SpecDrift: AO task card vs codebase.
 9. CHATGPT TEST         LULUS
 ?????????????????????????????
 Rata-rata               8.9/10
-Win Index estimasi    20ù28% (235 peserta, solo, execution-dependent)
+Win Index estimasi    20√π28% (235 peserta, solo, execution-dependent)
 ```
 
 ### 4.4 DeadDrop Checklist (6 Pertanyaan)
 
 | # | Pertanyaan | GreenLie |
 |---|----------|----------|
-| 1 | Failure mode bikin insomnia? | Ya ù agent melemahkan test, prod outage |
-| 2 | Stakes demo setinggi mungkin? | Ya ù auth 401 ? toBeGreaterThan(0), bug masuk prod |
-| 3 | Side-by-side before/after? | Ya ù naive merge vs GreenLie block |
-| 4 | Problem framing satu kalimat? | Ya ù "agent fixed the test, not the bug" |
-| 5 | Menyentuh criteria eksplisit juri? | Ya ù CI guardrails, AO feedback loop |
-| 6 | Nama menggambarkan mekanisme? | Ya ù GreenLie = CI hijau tapi bohong |
+| 1 | Failure mode bikin insomnia? | Ya √π agent melemahkan test, prod outage |
+| 2 | Stakes demo setinggi mungkin? | Ya √π auth 401 ? toBeGreaterThan(0), bug masuk prod |
+| 3 | Side-by-side before/after? | Ya √π naive merge vs GreenLie block |
+| 4 | Problem framing satu kalimat? | Ya √π "agent fixed the test, not the bug" |
+| 5 | Menyentuh criteria eksplisit juri? | Ya √π CI guardrails, AO feedback loop |
+| 6 | Nama menggambarkan mekanisme? | Ya √π GreenLie = CI hijau tapi bohong |
 
 ### 4.5 ChatGPT Test
 
@@ -258,7 +258,7 @@ Win Index estimasi    20ù28% (235 peserta, solo, execution-dependent)
 
 **GAGAL jika:** Wrapper ChatGPT, fitur generik summarize/generate.
 
-**LULUS karena:** Butuh parser assertion, scoring strictness, heuristics pairing, diff directory ù workflow multi-step dengan logika proprietary.
+**LULUS karena:** Butuh parser assertion, scoring strictness, heuristics pairing, diff directory √π workflow multi-step dengan logika proprietary.
 
 ---
 
@@ -294,9 +294,9 @@ Engineer yang menjalankan fleet coding agents (AO, Cursor, Claude Code, dll.) da
 
 ### 5.5 Metrik Utama
 
-- **Integrity Score** (0ù100%): persentase assertion yang tidak melemah
+- **Integrity Score** (0√π100%): persentase assertion yang tidak melemah
 - **Findings count**: jumlah TEST_BACKSLIDE + ASSERTION_DROPPED
-- **Confidence**: 0.7ù0.98 per temuan
+- **Confidence**: 0.7√π0.98 per temuan
 
 ---
 
@@ -326,21 +326,21 @@ expect(response.status).toBe(401)
 expect(response.status).toBeGreaterThan(0)
 ```
 
-Engineer senior jam 2 pagi **duduk tegak** ù karena status 500 juga `> 0`.
+Engineer senior jam 2 pagi **duduk tegak** √π karena status 500 juga `> 0`.
 
 ### 6.3 Kalimat Pitch ke Juri
 
-> "AO's CI feedback loop is powerful ù until the agent edits the test instead of the bug. GreenLie catches the green lie before it merges."
+> "AO's CI feedback loop is powerful √π until the agent edits the test instead of the bug. GreenLie catches the green lie before it merges."
 
 ### 6.4 Section List Website Demo
 
-1. **Hero** ù "Your board says merge." + fake green pulse
-2. **The Green Lie** ù problem framing
-3. **Side-by-Side Demo** ù centerpiece interaktif
-4. **How It Reads a PR** ù diff ? parse ? verdict
-5. **Built with AO** ù Kanban footage/screenshot
-6. **Try It** ù trigger analyze, golden report
-7. **Footer** ù GitHub, #agentorchestrator
+1. **Hero** √π "Your board says merge." + fake green pulse
+2. **The Green Lie** √π problem framing
+3. **Side-by-Side Demo** √π centerpiece interaktif
+4. **How It Reads a PR** √π diff ? parse ? verdict
+5. **Built with AO** √π Kanban footage/screenshot
+6. **Try It** √π trigger analyze, golden report
+7. **Footer** √π GitHub, #agentorchestrator
 
 ---
 
@@ -348,7 +348,7 @@ Engineer senior jam 2 pagi **duduk tegak** ù karena status 500 juga `> 0`.
 
 ### 7.1 Align dengan AO
 
-AO memasarkan: *CI fails ? agent fixes ? merge*. GreenLie menunjukkan **failure mode produk mereka sendiri** ù dan solusi. Ini bukan kritik destruktif; ini menunjukkan depth pemahaman platform.
+AO memasarkan: *CI fails ? agent fixes ? merge*. GreenLie menunjukkan **failure mode produk mereka sendiri** √π dan solusi. Ini bukan kritik destruktif; ini menunjukkan depth pemahaman platform.
 
 ### 7.2 Meta Demo AO (Wajib Rules)
 
@@ -359,7 +359,7 @@ Demo video harus include:
 
 ### 7.3 Engagement Sosial
 
-Post X/LinkedIn dengan `#agentorchestrator` @aoagents ù engagement **dihitung**. Siapkan thread + demo video embed.
+Post X/LinkedIn dengan `#agentorchestrator` @aoagents √π engagement **dihitung**. Siapkan thread + demo video embed.
 
 ### 7.4 Surprise Factor
 
@@ -444,14 +444,14 @@ GreenLie/
 
 ---
 
-## 9. Engine Python ù Detail Teknis
+## 9. Engine Python √π Detail Teknis
 
 ### 9.1 Stack
 
 - Python 3.11+
 - click (CLI)
 - pytest (dev)
-- Zero ML ù pure heuristic
+- Zero ML √π pure heuristic
 
 ### 9.2 Model Data
 
@@ -491,11 +491,11 @@ Threshold: `pasangan.tingkat_ketat < sebelum.tingkat_ketat - 15`
 
 Severity:
 - `critical` jika selisih >= 30
-- `warning` jika selisih 16ù29
+- `warning` jika selisih 16√π29
 
 ### 9.6 Assertion Pairing Heuristics
 
-1. Baris within ù3 ? dianggap pasangan
+1. Baris within √π3 ? dianggap pasangan
 2. Subjek `expect(...)` sama ? pasangan
 3. Subjek `assert ...` sama ? pasangan
 4. SequenceMatcher ratio > 0.55 ? pasangan
@@ -511,9 +511,9 @@ Exit code: 1
 ```
 
 Temuan utama:
-- GL-001: `toBe(401)` ? `toBeGreaterThan(0)` ù TEST_BACKSLIDE
-- GL-002: `toBe('Unauthorized')` ? `toBeDefined()` ù TEST_BACKSLIDE
-- GL-003ù005: assertion dropped atau weakened di test case lain
+- GL-001: `toBe(401)` ? `toBeGreaterThan(0)` √π TEST_BACKSLIDE
+- GL-002: `toBe('Unauthorized')` ? `toBeDefined()` √π TEST_BACKSLIDE
+- GL-003√π005: assertion dropped atau weakened di test case lain
 
 ### 9.8 File Test yang Didukung
 
@@ -523,10 +523,10 @@ Temuan utama:
 
 ### 9.9 Batasan MVP (Sengaja)
 
-- Tidak parse AST penuh ù regex line-based (cukup untuk demo hackathon)
+- Tidak parse AST penuh √π regex line-based (cukup untuk demo hackathon)
 - Tidak support semua matcher Jest (cukup yang common untuk backslide scenario)
-- Tidak integrasi git diff langsung ù compare dua direktori
-- Tidak block merge otomatis ù laporkan saja
+- Tidak integrasi git diff langsung √π compare dua direktori
+- Tidak block merge otomatis √π laporkan saja
 
 ---
 
@@ -593,7 +593,7 @@ PYTHONPATH="../engine:." uvicorn app.main:app --reload --port 8000
 ### 11.3 Build Status
 
 ```bash
-cd web && pnpm build  # OK ù static export ready
+cd web && pnpm build  # OK √π static export ready
 cd web && pnpm dev    # http://localhost:3000
 ```
 
@@ -629,7 +629,7 @@ Digunakan untuk:
 - Expected output dokumentasi
 - API response reference
 
-**Catatan:** Golden report (3 temuan, 42%) vs engine live (5 temuan, 29%) ù engine lebih agresif karena mendeteksi semua backslide di file. Update golden report sebelum submit agar konsisten.
+**Catatan:** Golden report (3 temuan, 42%) vs engine live (5 temuan, 29%) √π engine lebih agresif karena mendeteksi semua backslide di file. Update golden report sebelum submit agar konsisten.
 
 ---
 
@@ -646,16 +646,16 @@ brew install agentwrapper/tap/agent-orchestrator
 
 1. Buka AO ? Create project **GreenLie**
 2. Delegate parallel tasks:
-   - `engine/backslide-detector` ù Python engine
-   - `api/fastapi-wrapper` ù API layer
-   - `web/demo-bersebelahan` ù Next.js site
-   - `samples/naive-agent-fix` ù test fixtures
-3. **Rekam Kanban** selama build ù wajib untuk demo video
+   - `engine/backslide-detector` √π Python engine
+   - `api/fastapi-wrapper` √π API layer
+   - `web/demo-bersebelahan` √π Next.js site
+   - `samples/naive-agent-fix` √π test fixtures
+3. **Rekam Kanban** selama build √π wajib untuk demo video
 4. Ganti placeholder di `BuiltWithAO.tsx` dengan screenshot asli
 
 ### 13.3 Narasi AO untuk Pitch
 
-> "GreenLie was built using Agent Orchestrator as the workspace ù parallel agents on engine, API, and demo site. The demo video shows the real Kanban board."
+> "GreenLie was built using Agent Orchestrator as the workspace √π parallel agents on engine, API, and demo site. The demo video shows the real Kanban board."
 
 ### 13.4 Resources AO
 
@@ -717,14 +717,14 @@ Detail lengkap: `docs/01-DESIGN-ATM.md`
 | **12 Agg malam** | Sample repo, golden report, tests | ? |
 | **12 Agg malam** | Web scaffold + build OK | ? |
 | **12 Agg malam** | Deploy Vercel, GitHub public, API live | ? |
-| **12ù13 Agg** | Tier D pack + social assets | ? |
+| **12√π13 Agg** | Tier D pack + social assets | ? |
 | **13 Agg** | Rekam demo video manual (Screen Studio + AO asli) | ? |
 | **13 Agg siang** | Upload video ? Discord + X + LinkedIn | ? |
 | **13 Agg ? 7 PM** | Submit final | ? |
 
 ### 15.2 Progress Checklist Build
 
-#### Stage 1 ù Ideation ?
+#### Stage 1 √π Ideation ?
 
 - [x] Evaluasi 3 ide (GreenLie, FleetCollide, TaskDrift)
 - [x] 9 Lensa scoring
@@ -766,9 +766,9 @@ Catatan: Video auto GreenLie-demo.mp4 tidak dipakai.
 - [x] GitHub repo public: https://github.com/adindamochamad/GreenLie
 - [x] README updated dengan live URL
 - [x] Golden report sync dengan engine output (29%, 5 temuan)
-- [ ] Demo video ? 3 menit (produk + AO Kanban) ù **rekam manual**
+- [ ] Demo video ? 3 menit (produk + AO Kanban) √π **rekam manual**
 - [x] Live demo URL: https://web-flax-xi-10.vercel.app
-- [ ] AO Kanban screenshot asli di website (optional ù placeholder `ao-kanban.png` ada)
+- [ ] AO Kanban screenshot asli di website (optional √π placeholder `ao-kanban.png` ada)
 
 ### 16.2 Discord `#orchestra-project-showcase`
 
@@ -803,12 +803,12 @@ GitHub: [URL]
 
 | Waktu | Konten |
 |-------|--------|
-| 0:00ù0:20 | Hook: "CI passed. Auth was broken. The agent didn't fix the bug ù it fixed the test." |
-| 0:20ù0:45 | AO Kanban: cards moving (engine, web, samples) |
-| 0:45ù1:30 | Website side-by-side demo: toggle naive vs GreenLie |
-| 1:30ù2:00 | Terminal: `./scripts/demo.sh` ? Integrity 29%, 5 findings |
-| 2:00ù2:30 | Highlight GL-001: `toBe(401)` ? `toBeGreaterThan(0)` |
-| 2:30ù3:00 | GitHub + "Built with Agent Orchestrator" + CTA |
+| 0:00√π0:20 | Hook: "CI passed. Auth was broken. The agent didn't fix the bug √π it fixed the test." |
+| 0:20√π0:45 | AO Kanban: cards moving (engine, web, samples) |
+| 0:45√π1:30 | Website side-by-side demo: toggle naive vs GreenLie |
+| 1:30√π2:00 | Terminal: `./scripts/demo.sh` ? Integrity 29%, 5 findings |
+| 2:00√π2:30 | Highlight GL-001: `toBe(401)` ? `toBeGreaterThan(0)` |
+| 2:30√π3:00 | GitHub + "Built with Agent Orchestrator" + CTA |
 
 ---
 
@@ -894,12 +894,12 @@ open -a "Agent Orchestrator"
 | **Test Backslide** | Assertion diperlemah dari exact ke range/truthy/defined |
 | **Assertion Dropped** | Agent menghapus assertion tanpa mengganti setara |
 | **Integrity Score** | % assertion before yang masih setara strictness after |
-| **AO** | Agent Orchestrator ù fleet coding agents parallel |
+| **AO** | Agent Orchestrator √π fleet coding agents parallel |
 | **CI Feedback Loop** | AO feature: CI fail ? route back to owning agent |
-| **ATM** | Amati-Tiru-Modifikasi ù metode design Stage 2 |
-| **ChatGPT Test** | "Apakah ChatGPT bisa produce hasil setara?" ù eliminasi ide |
+| **ATM** | Amati-Tiru-Modifikasi √π metode design Stage 2 |
+| **ChatGPT Test** | "Apakah ChatGPT bisa produce hasil setara?" √π eliminasi ide |
 
 ---
 
 *Dokumen ini = single source of truth konteks proyek GreenLie untuk The Orchestra hackathon.*
-*Pemilik: Adinda Panca Mochamad ù Solo ù Aug 2026*
+*Pemilik: Adinda Panca Mochamad √π Solo √π Aug 2026*
