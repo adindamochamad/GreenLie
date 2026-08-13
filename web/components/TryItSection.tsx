@@ -86,14 +86,36 @@ export function TryItSection() {
           {error && <div className="text-[#ff3b30]">{error}</div>}
           {laporan && (
             <div className="space-y-4">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="inline-block bg-[#ff3b30]/15 border border-[#ff3b30]/40 px-2 py-0.5 text-[10px] uppercase tracking-wider text-[#ff3b30]">
+                  Merge blocked
+                </span>
+                {laporan.duration_ms != null && (
+                  <span className="inline-block bg-[#3dff7a]/10 border border-[#3dff7a]/30 px-2 py-0.5 text-[10px] uppercase tracking-wider text-[#3dff7a]">
+                    Live scan · {laporan.duration_ms}ms
+                  </span>
+                )}
+              </div>
               <div className="text-[#ff3b30] text-lg font-bold">
                 Integrity: {laporan.integrity_score}% | {laporan.temuan.length} findings
               </div>
               <p className="text-[#8a8f82] text-xs">
                 {laporan.assertion_aman}/{laporan.assertion_dicek} assertions intact
-                {laporan.duration_ms != null ? ` · ${laporan.duration_ms}ms live` : ""}
               </p>
-              <ul className="space-y-2 text-xs max-h-48 overflow-y-auto">
+              {laporan.temuan[0] && (
+                <div className="border border-white/10 bg-[#161a14] p-3 text-xs space-y-2">
+                  <p className="text-[#ff3b30] font-bold">{laporan.temuan[0].id} · {laporan.temuan[0].severity}</p>
+                  <p>
+                    <span className="text-[#8a8f82]">Before:</span>{" "}
+                    <span className="text-[#e8e4dc]">{laporan.temuan[0].sebelum}</span>
+                  </p>
+                  <p>
+                    <span className="text-[#8a8f82]">After:</span>{" "}
+                    <span className="text-[#ff3b30]">{laporan.temuan[0].sesudah}</span>
+                  </p>
+                </div>
+              )}
+              <ul className="space-y-2 text-xs max-h-36 overflow-y-auto">
                 {laporan.temuan.map((t) => (
                   <li key={t.id} className="border-l-2 border-[#ff3b30] pl-3 text-[#8a8f82]">
                     <span className="text-[#ff3b30]">{t.id}</span>{" "}

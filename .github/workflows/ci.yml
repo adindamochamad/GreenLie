@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  test-integrity:
+    name: Test integrity guard
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: engine/pyproject.toml
+
+      - name: Install GreenLie engine
+        run: pip install -e "./engine[dev]"
+
+      - name: Run unit tests
+        working-directory: engine
+        run: pytest tests/ -v
+
+      - name: Verify sample backslide is detected
+        run: |
+          set +e
+          greenlie analyze
+          kode_keluar=$?
+          set -e
+          if [ "$kode_keluar" -ne 1 ]; then
+            echo "Expected exit code 1 when test backslide is present, got $kode_keluar"
+            exit 1
+          fi
+          echo "GreenLie correctly blocked merge on weakened tests (exit 1)."

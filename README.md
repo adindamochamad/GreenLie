@@ -1,12 +1,12 @@
 # GreenLie
 
-**Detektor saat agent "memperbaiki" CI dengan melemahkan test  bukan memperbaiki bug.**
+**Detektor saat agent "memperbaiki" CI dengan melemahkan test — bukan memperbaiki bug.**
 
-> What happens when your agent "fixes" CI by weakening the test  and your Kanban board says ready to merge?
+> What happens when your agent "fixes" CI by weakening the test — and your Kanban board says ready to merge?
 
-Built for [The Orchestra](https://luma.com/iw1v5erp)  Agent Orchestrator's first hackathon.
+Built for [The Orchestra](https://luma.com/iw1v5erp) — Agent Orchestrator's first hackathon · workspace: [Agent Orchestrator](https://aoagents.dev/)
 
-> **Konteks lengkap proyek:** lihat [`CONTEXT.md`](CONTEXT.md)  hackathon rules, strategi, arsitektur, timeline, submission checklist.
+> **Konteks lengkap proyek:** lihat [`CONTEXT.md`](CONTEXT.md) — hackathon rules, strategi, arsitektur, timeline, submission checklist.
 
 ---
 
@@ -30,8 +30,9 @@ GreenLie catches the green lie before it ships.
 | | URL |
 |---|---|
 | **Website + API** | https://web-flax-xi-10.vercel.app |
+| **Demo video** | https://youtu.be/RmDVxPWPBzU |
 | **GitHub** | https://github.com/adindamochamad/GreenLie |
-| **Submit** | [`docs/TIER-D-READY.md`](docs/TIER-D-READY.md) |
+| **Hackathon** | [The Orchestra](https://luma.com/iw1v5erp) · Built with [Agent Orchestrator](https://aoagents.dev/) |
 
 ---
 
@@ -52,6 +53,21 @@ Assertions: 2/7 intact
 Findings: 5 critical
 Exit code: 1 (test backslide detected)
 ```
+
+---
+
+## Where it fits in an AO workflow
+
+After an agent "fixes" CI, run GreenLie **before merge**:
+
+```bash
+greenlie analyze --before ./path/to/tests-before --after ./path/to/tests-after
+# exit 0 = no backslide · exit 1 = weakened tests ? block merge
+```
+
+In [Agent Orchestrator](https://aoagents.dev/)'s CI feedback loop, this is the guardrail between *agent fixed CI* and *board says merge*.
+
+This repo's GitHub Action runs the same check on every push — see [`.github/workflows/ci.yml`](.github/workflows/ci.yml).
 
 ---
 
