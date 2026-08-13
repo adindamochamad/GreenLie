@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>GreenLie — Alur</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      width: 1920px;
+      height: 1080px;
+      background: #0d0f0c;
+      color: #e8e4dc;
+      font-family: Inter, system-ui, sans-serif;
+      display: flex;
+      flex-direction: column;
+      padding: 72px 80px 64px;
+    }
+
+    .judul {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .judul h1 {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: 52px;
+      font-weight: 400;
+      color: #c44d2e;
+    }
+
+    .judul p {
+      margin-top: 12px;
+      font-size: 22px;
+      color: #8a8f82;
+    }
+
+    /* Alur horizontal */
+    .alur {
+      flex: 1;
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+    }
+
+    .langkah {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 24px;
+      position: relative;
+    }
+
+    /* Panah antar langkah */
+    .langkah:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      right: -18px;
+      top: 52px;
+      font-size: 36px;
+      color: #3dff7a;
+      font-weight: 300;
+      z-index: 2;
+    }
+
+    .nomor {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      border: 2px solid #3dff7a;
+      color: #3dff7a;
+      font-size: 32px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 28px;
+      flex-shrink: 0;
+    }
+
+    .langkah:nth-child(3) .nomor {
+      border-color: #c44d2e;
+      color: #c44d2e;
+      background: rgba(196, 77, 46, 0.1);
+    }
+
+    .langkah h2 {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: 32px;
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      color: #e8e4dc;
+    }
+
+    .langkah p {
+      font-size: 19px;
+      line-height: 1.55;
+      color: #8a8f82;
+      max-width: 320px;
+    }
+
+    .highlight {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .hijau {
+      background: rgba(61, 255, 122, 0.1);
+      border: 1px solid rgba(61, 255, 122, 0.35);
+      color: #3dff7a;
+    }
+
+    .merah {
+      background: rgba(255, 59, 48, 0.1);
+      border: 1px solid rgba(255, 59, 48, 0.35);
+      color: #ff3b30;
+    }
+
+    .oranye {
+      background: rgba(196, 77, 46, 0.12);
+      border: 1px solid rgba(196, 77, 46, 0.4);
+      color: #c44d2e;
+    }
+
+    .footer {
+      margin-top: 48px;
+      text-align: center;
+      font-size: 16px;
+      color: #8a8f82;
+      letter-spacing: 0.02em;
+    }
+
+    .footer a {
+      color: #3dff7a;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <header class="judul">
+    <h1>GreenLie</h1>
+    <p>Alur: dari “semua hijau” sampai merge diblokir</p>
+  </header>
+
+  <section class="alur">
+    <article class="langkah">
+      <div class="nomor">1</div>
+      <h2>Semua terlihat OK</h2>
+      <p>CI lulus, board bilang siap merge. Semua checklist hijau.</p>
+      <span class="highlight hijau">✓ Siap merge</span>
+    </article>
+
+    <article class="langkah">
+      <div class="nomor">2</div>
+      <h2>AI “memperbaiki” tes</h2>
+      <p>Bukan bug-nya yang dibenerin — tes-nya dilonggarkan supaya lulus.</p>
+      <span class="highlight merah">Bug masih ada</span>
+    </article>
+
+    <article class="langkah">
+      <div class="nomor">3</div>
+      <h2>GreenLie cek ulang</h2>
+      <p>Kasih skor kepercayaan tes. Kalau tes dilonggarkan, merge diblokir.</p>
+      <span class="highlight merah">29% · merge blocked</span>
+    </article>
+
+    <article class="langkah">
+      <div class="nomor">4</div>
+      <h2>Dibangun pakai AO</h2>
+      <p>Empat AI helper paralel — engine, web, API, samples — di Kanban asli.</p>
+      <span class="highlight oranye">Agent Orchestrator</span>
+    </article>
+  </section>
+
+  <footer class="footer">
+    web-flax-xi-10.vercel.app · #agentorchestrator · The Orchestra Hackathon
+  </footer>
+</body>
+</html>

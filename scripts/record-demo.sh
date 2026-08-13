@@ -8,7 +8,7 @@ URL_DEMO="https://web-flax-xi-10.vercel.app"
 echo "🎬 GreenLie — Recording prep"
 echo ""
 echo "1. Start screen recorder (QuickTime / OBS / Loom)"
-echo "2. Follow docs/VIDEO-SCRIPT.md"
+echo "2. Follow docs/VIDEO-SELF-SCRIPT.md (detail scene + script)"
 echo ""
 read -r -p "Press Enter when recorder is running..."
 

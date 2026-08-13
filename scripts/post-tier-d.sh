@@ -17,8 +17,8 @@ read -r -p "Pilih [1-5]: " PILIH
 
 case "$PILIH" in
   1)
-    sed -n '/^```$/,/^```$/p' "$FILE" | sed '1d;$d' | head -10 | pbcopy
-    echo "✓ Discord post copied. Paste di #orchestra-project-showcase"
+    awk '/^Hey everyone!/,/^Feedback welcome/' "$ROOT/docs/SOCIAL-CAPTIONS.md" | pbcopy
+    echo "✓ Discord post (descriptive) copied. Paste di #orchestra-project-showcase"
     open "https://discord.gg/87NPrAuDa"
     ;;
   3)

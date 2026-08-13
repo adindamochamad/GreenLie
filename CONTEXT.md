@@ -852,7 +852,7 @@ open -a "Agent Orchestrator"
 | GreenLie GitHub | https://github.com/adindamochamad/GreenLie | ? |
 | Live Demo | https://web-flax-xi-10.vercel.app | ? |
 | API (Vercel) | https://web-flax-xi-10.vercel.app/api/analyze | ? |
-| Demo Video | `[VIDEO_URL]` | ? rekam manual |
+| Demo Video | https://youtu.be/RmDVxPWPBzU | ? |
 | Submission pack | docs/TIER-D-READY.md | ? siap copy-paste |
 
 ---

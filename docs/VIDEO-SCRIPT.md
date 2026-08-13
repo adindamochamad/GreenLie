@@ -1,6 +1,8 @@
 # Demo Video Script — GreenLie (2:45)
 
 > **Rules:** Demo video WAJIB menampilkan AO Kanban. AO footage = 35%+ screen time.
+>
+> **Production detail (Flow + Screen Record + ElevenLabs per scene):** [`VIDEO-PRODUCTION-SCENES.md`](VIDEO-PRODUCTION-SCENES.md)
 
 ---
 

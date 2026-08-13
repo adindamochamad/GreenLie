@@ -20,4 +20,5 @@ out/
 # Video build artifacts (keep final demo mp4)
 docs/video-build/
 !docs/video-build/.gitkeep
+video/
 web/docs/
