@@ -1,6 +1,6 @@
 # Submission templates
 
-> **Paket lengkap:** lihat [`TIER-D-READY.md`](TIER-D-READY.md) — semua URL sudah diisi, tinggal `[VIDEO_URL]`.
+> **Paket lengkap:** lihat [`TIER-D-READY.md`](TIER-D-READY.md) — semua URL sudah diisi termasuk demo video.
 
 ## Quick links
 

@@ -1,29 +1,14 @@
-# GreenLie — Tier D Submission Pack (READY)
+# GreenLie — Social Captions (Copy-Paste)
 
-> **Semua URL siap** — demo video: https://youtu.be/RmDVxPWPBzU
-
-| Resource | URL |
-|----------|-----|
-| Live demo | https://web-flax-xi-10.vercel.app |
-| GitHub | https://github.com/adindamochamad/GreenLie |
-| Demo video | https://youtu.be/RmDVxPWPBzU |
-| API health | https://web-flax-xi-10.vercel.app/api/health |
-| API analyze | POST https://web-flax-xi-10.vercel.app/api/analyze |
-| Hackathon | https://luma.com/iw1v5erp |
-| AO | https://aoagents.dev/ |
-| Discord | https://discord.gg/87NPrAuDa |
+> Video: https://youtu.be/RmDVxPWPBzU  
+> Live: https://web-flax-xi-10.vercel.app  
+> GitHub: https://github.com/adindamochamad/GreenLie
 
 ---
 
-## Step 1 — Upload video ke YouTube ✅
+## 1. Discord `#orchestra-project-showcase` (WAJIB)
 
-**Done:** https://youtu.be/RmDVxPWPBzU
-
----
-
-## Step 2 — Discord `#orchestra-project-showcase`
-
-Copy-paste persis:
+Paste persis:
 
 ```
 Hey everyone!
@@ -45,9 +30,9 @@ Feedback welcome — #agentorchestrator
 
 ---
 
-## Step 3 — X Thread (post as thread, tag @aoagents)
+## 2. X Thread (WAJIB — post as thread, reply to yourself)
 
-**Tweet 1/5**
+**Tweet 1/5** — hook + tag
 ```
 Built GreenLie for @aoagents hackathon #agentorchestrator 🧵
 
@@ -58,7 +43,7 @@ Production says outage.
 The agent didn't fix the bug — it fixed the test.
 ```
 
-**Tweet 2/5**
+**Tweet 2/5** — the green lie
 ```
 Classic agent CI "fix":
 
@@ -70,7 +55,7 @@ Status 500 also passes > 0.
 Auth bug ships to prod. Nobody diffed the test.
 ```
 
-**Tweet 3/5**
+**Tweet 3/5** — demo (+ screenshot opsional)
 ```
 GreenLie side-by-side: naive merge vs integrity block.
 
@@ -79,23 +64,23 @@ Integrity score: 29%
 2/7 assertions still intact
 
 Live demo → https://web-flax-xi-10.vercel.app
-
-[Screenshot demo section — docs/assets/demo-section.png]
 ```
+*Attach: screenshot demo section dari website*
 
-**Tweet 4/5**
+**Tweet 4/5** — AO (+ screenshot opsional)
 ```
 Built with @aoagents — parallel agents on:
 • Python backslide engine
 • FastAPI + Vercel API
 • Next.js demo site
 
-This is AO's CI feedback loop failure mode — and a guardrail for it.
+Real AO Kanban in the demo video — guardrail for AO's CI feedback loop.
 
-[AO Kanban screenshot — docs/assets/ao-kanban.png]
+🎬 https://youtu.be/RmDVxPWPBzU
 ```
+*Attach: screenshot AO Kanban board*
 
-**Tweet 5/5**
+**Tweet 5/5** — links
 ```
 Try it: https://web-flax-xi-10.vercel.app
 GitHub: https://github.com/adindamochamad/GreenLie
@@ -104,11 +89,13 @@ Demo: https://youtu.be/RmDVxPWPBzU
 #agentorchestrator @aoagents
 ```
 
+**Cara post thread:** Tweet 1 → reply Tweet 2 → reply Tweet 3 → … sampai 5/5.
+
 ---
 
-## Step 4 — LinkedIn
+## 3. LinkedIn
 
-**Poster:** ChatGPT → `docs/CHATGPT-POSTER-PROMPT.md` · **Caption:** `docs/LINKEDIN-POST.md`
+**Panduan lengkap:** `docs/LINKEDIN-POST.md`
 
 ```
 I just shipped GreenLie for The Orchestra hackathon — built with Agent Orchestrator.
@@ -138,11 +125,11 @@ If you ship with coding agents, I'd genuinely love your feedback.
 Built for The Orchestra · Agent Orchestrator
 ```
 
-Attach poster sebagai gambar utama post.
+**Cara post:** Attach poster → paste caption → tag Agent Orchestrator.
 
 ---
 
-## Step 5 — Discord `#orchestra-general`
+## 4. Discord `#orchestra-general` (opsional)
 
 ```
 Just shipped GreenLie for The Orchestra — would love feedback before deadline 🙏
@@ -156,38 +143,14 @@ Built with AO. #agentorchestrator
 
 ---
 
-## Step 6 — Engagement (jam pertama)
+## Checklist
 
-- [x] Discord `#orchestra-project-showcase` posted
-- [x] X thread posted (@aoagents #agentorchestrator)
-- [x] LinkedIn posted
-- [ ] Reply setiap komentar di Discord showcase (ongoing)
-- [ ] Minta 2–3 teman RT/reply thread X dalam 60 menit (optional)
-- [ ] Comment di post AO organizers jika ada (optional)
-- [ ] Pin tweet thread (optional)
-
----
-
-## Step 7 — Final gate (13 Aug, ≥2 jam sebelum 7 PM)
-
-- [x] Video URL filled di Discord + X + LinkedIn
-- [x] Discord showcase posted
-- [x] X thread posted
-- [x] LinkedIn posted
-- [ ] `./scripts/demo.sh` → 29%, 5 findings (verify)
-- [ ] Live site Try It → live API response
-- [x] GitHub public ✓
-- [x] AO Kanban visible di video ✓
-
-**Deadline: 13 Agustus 2026, 7:00 PM**
-
----
-
-## Quick verify commands
+- [ ] Discord showcase posted
+- [ ] X thread (5 tweets) **atau** LinkedIn posted
+- [ ] `#agentorchestrator` + tag @aoagents (X) / Agent Orchestrator (LinkedIn)
+- [ ] Video link works in incognito
 
 ```bash
-curl https://web-flax-xi-10.vercel.app/api/health
-curl -X POST https://web-flax-xi-10.vercel.app/api/analyze \
-  -H "Content-Type: application/json" -d '{"sample":"naive-agent"}'
-./scripts/demo.sh
+./scripts/post-tier-d.sh   # helper copy Discord / LinkedIn
+open docs/SOCIAL-CAPTIONS.md
 ```
