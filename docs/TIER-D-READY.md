@@ -21,9 +21,38 @@
 
 ---
 
-## Step 2 — Discord `#orchestra-project-showcase`
+## Step 2 — Discord `#orchestra-project-showcase` (FINAL — official template)
 
-Copy-paste persis:
+> **Deadline:** 14 Agustus 2026, **12:30 AM IST** (02:00 WIB)
+>
+> **Full pack:** [`docs/FINAL-SUBMISSION.md`](FINAL-SUBMISSION.md)
+
+Copy-paste (isi **X Post Link** + **LinkedIn Post Link** dulu):
+
+```
+**Team Name:** Adinda Panca Mochamad (solo)
+
+**Team Members:** Adinda Panca Mochamad
+
+**Project Name:** GreenLie
+
+**Short Description:** GreenLie is a test integrity guard for agentic CI. It catches when AI coding agents "fix" failing CI by weakening test assertions instead of fixing the actual bug — your Kanban says merge, every check looks green, but the bug can still ship. GreenLie scores assertion integrity (sample: 29%) and blocks merge when tests were loosened, not when the product was fixed.
+
+**GitHub Repo:** https://github.com/adindamochamad/GreenLie
+
+**Live Link:** https://web-flax-xi-10.vercel.app
+
+**Demo Video:** https://youtu.be/RmDVxPWPBzU
+
+**X Post Link:** https://x.com/adindacq/status/2087568818956824691
+
+**LinkedIn Post Link:** https://lnkd.in/p/gQNncPvH
+
+**How we used AO:** Built the entire project in Agent Orchestrator as the workspace. Ran four parallel agents on separate workstreams — Python backslide engine, FastAPI/Vercel API, Next.js demo site, and sample test fixtures — coordinated through the AO Kanban board. Demo video includes real AO Kanban footage showing cards move across engine, web, api, and samples branches. GreenLie directly addresses AO's CI feedback loop failure mode: when an agent "fixes" CI by editing tests instead of code, GreenLie is the guardrail before merge.
+```
+
+<details>
+<summary>Legacy showcase post (optional — sudah dipost sebelumnya)</summary>
 
 ```
 Hey everyone!
@@ -42,6 +71,8 @@ Demo video: https://youtu.be/RmDVxPWPBzU
 
 Feedback welcome — #agentorchestrator
 ```
+
+</details>
 
 ---
 
@@ -168,18 +199,21 @@ Built with AO. #agentorchestrator
 
 ---
 
-## Step 7 — Final gate (13 Aug, ≥2 jam sebelum 7 PM)
+## Step 7 — Final gate
 
 - [x] Video URL filled di Discord + X + LinkedIn
-- [x] Discord showcase posted
+- [x] Discord showcase posted (legacy format)
+- [ ] **Final submission repost** dengan official template (`docs/FINAL-SUBMISSION.md`)
+- [ ] **X Post Link** + **LinkedIn Post Link** diisi di submission
 - [x] X thread posted
 - [x] LinkedIn posted
 - [ ] `./scripts/demo.sh` → 29%, 5 findings (verify)
 - [ ] Live site Try It → live API response
 - [x] GitHub public ✓
 - [x] AO Kanban visible di video ✓
+- [ ] Notion Submission Checklist reviewed
 
-**Deadline: 13 Agustus 2026, 7:00 PM**
+**Deadline: 14 Agustus 2026, 12:30 AM IST** (02:00 WIB)
 
 ---
 

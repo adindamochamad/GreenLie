@@ -2,7 +2,7 @@
 
 | Document | When to use |
 |----------|-------------|
-| [`TIER-D-READY.md`](TIER-D-READY.md) | Hackathon submission — Discord, X, LinkedIn copy-paste |
+| [`FINAL-SUBMISSION.md`](FINAL-SUBMISSION.md) | **Official Discord submission template (Aug 14 deadline)** |
 | [`SUBMISSION.md`](SUBMISSION.md) | Quick links + social assets |
 | [`DEPLOY-API.md`](DEPLOY-API.md) | API endpoints (Vercel + optional FastAPI) |
 | [`YOUTUBE-UPLOAD.md`](YOUTUBE-UPLOAD.md) | YouTube upload checklist |
